@@ -4,6 +4,8 @@ The master and slave sketches used to save rpm data using digital hall effect se
   The master Arduino is the one that is connected to the Hall Effect sensors and measures the time per revolution of the sensor in milliseconds. It saves each value in an array of size ARRAY_SIZE and when this array is full it sends the data to the slave Arduino. This data is send using a basic data transmission protocol and NR2 encoding. The data for each sensor is stored in it's own array and send through it own bus using it's own clock (i.e. for N number of sensors, N number of clocks and busses must be used).
 
   The slave Arduino is the one that receives the data and write to an a file on an SD card using an SD shield. The shield currently used is an OSEPP-MSDS-01 for an Arduino Uno. If the shield is changed the required pins must be changed. This Arduino receives the data from the master and stores it in an array of size ARRAY_SIZE (Note: These two arrays can be, and it is recommended they be, different sizes. Currently in the master sketch SIZE_ARRAY = 10 and in the slave sketch SIZE_ARRAY = 100. This is done to avoid opening the file as often since this is the time consuming part). Once the array is full it appends the file with all the values.
+  
+  The validation sketches were used to test the sketches.
 
 # Curent Variables and Macros Used for the Master
 The global names and variable are as follows:
