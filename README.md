@@ -1,5 +1,5 @@
 # Arduino-RPM-Write-to-File
-The master and slave sketches used to save rpm data using digital hall effect sensors
+The master and slave sketches are used to save time per revolution data to an SD card using digital hall effect sensors and 2 arduinos.
 
   The master Arduino is the one that is connected to the Hall Effect sensors and measures the time per revolution of the sensor in milliseconds. It saves each value in an array of size ARRAY_SIZE and when this array is full it sends the data to the slave Arduino. This data is send using a basic data transmission protocol and NR2 encoding. The data for each sensor is stored in it's own array and send through it own bus using it's own clock (i.e. for N number of sensors, N number of clocks and busses must be used).
 
